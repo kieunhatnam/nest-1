@@ -46,10 +46,6 @@ export class CartService {
             }
         }
     }
-    finalCart: Item[] = [];
-    finalPrice(){
-
-    };
 
     searchList : Item[] = [];
     search(option:string,key:string){
@@ -72,6 +68,10 @@ export class CartService {
             return this.searchList; 
         }
     }
+    finalCart: Item[] = [];
+    finalPrice(){
+
+    };
 
  
 }
