@@ -3,7 +3,7 @@ import { Item } from 'src/models/item.models';
 
 @Injectable()
 export class CartService {
-    cartList  = [];
+    cartList : Item[] = [];
   
     add(item: Item){
         this.cartList.push(item);
@@ -46,11 +46,14 @@ export class CartService {
             }
         }
     }
+    finalCart: Item[] = [];
     finalPrice(){
 
     };
 
+    searchList : Item[] = [];
     search(option:string,key:string){
+        this.searchList = [];
         switch(option){
             case 'name':
                 for (let i = 0; i < this.cartList.length; i++){
@@ -61,13 +64,14 @@ export class CartService {
             break;
             case 'instock':
                 console.log(key)
-                let temp : Item[];
                 for (let i = 0; i < this.cartList.length; i++){
-                    if (this.cartList[i].inStock ==  Boolean(key)){
-                                     
+                    if (this.cartList[i].inStock ==  Number(key)){
+                        this.searchList.push(this.cartList[i])            
                     }
                 }
-            return temp; 
+            return this.searchList; 
         }
     }
+
+ 
 }

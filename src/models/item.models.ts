@@ -5,5 +5,5 @@ export interface Item{
     description: string;
     quantity: number;
     inCart: number;
-    inStock: boolean;
+    inStock: number;
 }
